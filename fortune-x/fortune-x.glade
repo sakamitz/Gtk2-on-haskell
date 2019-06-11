@@ -2,9 +2,11 @@
 <interface>
   <requires lib="gtk+" version="2.24"/>
   <!-- interface-naming-policy project-wide -->
+  <object class="GtkTextBuffer" id="textBuffer"/>
   <object class="GtkWindow" id="mainWindow">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">fortune-x</property>
+    <property name="resizable">False</property>
     <property name="window_position">mouse</property>
     <property name="destroy_with_parent">True</property>
     <child>
@@ -15,6 +17,8 @@
           <object class="GtkTextView" id="textView">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
+            <property name="editable">False</property>
+            <property name="buffer">textBuffer</property>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -29,10 +33,11 @@
             <property name="homogeneous">True</property>
             <property name="layout_style">spread</property>
             <child>
-              <object class="GtkButton" id="buttonFortune">
+              <object class="GtkButton" id="buttonGet">
                 <property name="label" translatable="yes">Get fortune</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -45,6 +50,7 @@
               <object class="GtkButton" id="buttonSave">
                 <property name="label" translatable="yes">Save</property>
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
               </object>
